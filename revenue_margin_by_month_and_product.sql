@@ -1,15 +1,9 @@
-CREATE OR REPLACE TABLE margin_by_product_by_month(
-month varchar(10) default NULL,
-product_name varchar(100) default NULL,
-margin Number(30,12) default 0
-);
-CREATE OR REPLACE TABLE sales_volume_by_product_by_month(
-month varchar(10) default NULL,
-product_name varchar(100) default NULL,
-sales_volume Number(30,12) default 0
-);
+SELECT MONTHNAME(b.BILLING_DATE) as MONTH, 
+       p.PRODUCT_NAME, 
+       SUM(b.REVENUE), 
+       SUM(b.REVENUE - p.COST) as MARGIN
+FROM TEST_DB.OLTP.BILLINGTRANSACTION b
+LEFT JOIN TEST_DB.OLTP.PRODUCT p ON b.PRODUCTID = p.PRODUCTID
+GROUP by MONTHNAME(b.BILLING_DATE),
+         p.PRODUCT_NAME
 
-CREATE OR REPLACE TABLE males_v_females_sales_volume(
-gender varchar(1) default NULL,
-sales_volume Number(30,12) default 0
-);
