@@ -13,3 +13,8 @@ CREATE OR REPLACE TABLE males_v_females_sales_volume(
 gender varchar(1) default NULL,
 sales_volume Number(30,12) default 0
 );
+CREATE OR REPLACE TABLE REGION_MAP(
+area varchar(200) default NULL,
+region varchar(200) default 0
+);
+
