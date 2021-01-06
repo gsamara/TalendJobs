@@ -15,6 +15,6 @@ sales_volume Number(30,12) default 0
 );
 CREATE OR REPLACE TABLE REGION_MAP(
 area varchar(200) default NULL,
-region varchar(200) default 0
+region varchar(200) default NULL
 );
 
