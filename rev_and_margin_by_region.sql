@@ -1,5 +1,5 @@
 SELECT 
-       a.address,
+       split_part(a.address,' ',4), --a.address,
        b.REVENUE, 
        b.REVENUE - p.COST as MARGIN
 FROM TEST_DB.OLTP.BILLINGTRANSACTION b
